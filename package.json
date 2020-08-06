@@ -589,6 +589,16 @@
                 "category": "Python"
             },
             {
+                "command": "python.datascience.gotoNextCellInFile",
+                "title": "%python.command.python.datascience.gotoNextCellInFile.title%",
+                "category": "Python"
+            },
+            {
+                "command": "python.datascience.gotoPrevCellInFile",
+                "title": "%python.command.python.datascience.gotoPrevCellInFile.title%",
+                "category": "Python"
+            },
+            {
                 "command": "python.datascience.runcurrentcelladvance",
                 "title": "%python.command.python.datascience.runcurrentcelladvance.title%",
                 "category": "Python"
@@ -1145,6 +1155,18 @@
                 {
                     "command": "python.datascience.changeCellToCode",
                     "title": "%python.command.python.datascience.changeCellToCode.title%",
+                    "category": "Python",
+                    "when": "python.datascience.hascodecells && python.datascience.featureenabled && !notebookEditorFocused"
+                },
+                {
+                    "command": "python.datascience.gotoNextCellInFile",
+                    "title": "%python.command.python.datascience.gotoNextCellInFile.title%",
+                    "category": "Python",
+                    "when": "python.datascience.hascodecells && python.datascience.featureenabled && !notebookEditorFocused"
+                },
+                {
+                    "command": "python.datascience.gotoPrevCellInFile",
+                    "title": "%python.command.python.datascience.gotoPrevCellInFile.title%",
                     "category": "Python",
                     "when": "python.datascience.hascodecells && python.datascience.featureenabled && !notebookEditorFocused"
                 },
