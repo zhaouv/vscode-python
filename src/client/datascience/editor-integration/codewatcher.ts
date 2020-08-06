@@ -1093,11 +1093,7 @@ export class CodeWatcher implements ICodeWatcher {
         );
         if (currentIndex >= 1) {
             return this.codeLenses.find(
-                (l: CodeLens, i: number) =>
-                    l.command !== undefined &&
-                    l.command.command === Commands.RunCell &&
-                    i < currentIndex &&
-                    i + 2 === currentIndex
+                (l: CodeLens, i: number) => l.command !== undefined && i < currentIndex && i + 1 === currentIndex
             );
         }
         return undefined;
