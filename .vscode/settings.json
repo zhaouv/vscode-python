@@ -56,6 +56,5 @@
         "--max-line-length=88"
     ],
     "typescript.preferences.importModuleSpecifier": "relative",
-    "debug.javascript.usePreview": false,
-    "python.pythonPath": "C:\\Users\\jimg\\anaconda3\\python.exe"
+    "debug.javascript.usePreview": false
 }
