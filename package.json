@@ -3268,6 +3268,13 @@
                 "language": "pip-requirements",
                 "scopeName": "source.pip-requirements",
                 "path": "./syntaxes/pip-requirements.tmLanguage.json"
+            },
+            {
+                "injectTo": [
+                    "source.python"
+                ],
+                "scopeName": "comment.markdown-cell-inject.python",
+                "path": "./syntaxes/python.markdown.inject.tmLanguage"
             }
         ],
         "jsonValidation": [
@@ -3358,6 +3365,7 @@
         "build-ipywidgets-clean": "node ./src/ipywidgets/scripts/clean.js",
         "build-ipywidgets-compile": "tsc -p ./src/ipywidgets && rimraf ./out/tsconfig.tsbuildinfo && node ./src/ipywidgets/scripts/copyfiles.js",
         "build-ipywidgets-webpack": "cross-env NODE_OPTIONS=--max_old_space_size=9096 webpack --config ./src/ipywidgets/webpack.config.js",
+        "build-markdown-cell-syntax": "node ./syntaxes/processTML.js",
         "checkDependencies": "gulp checkDependencies",
         "postinstall": "node ./build/ci/postInstall.js",
         "test": "node ./out/test/standardTest.js && node ./out/test/multiRootTest.js",
