@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
+    <key>comment</key>
+    <string>TO_BE_REPLACED_GENERATED_NOTICE</string>
     <key>patterns</key>
     <array>
       <dict>
@@ -14,7 +16,7 @@
       <key>comment-markdown-cell-inject-python</key>
       <dict>
         <key>name</key>
-        <string>text.html.markdown.comment.python</string>
+        <string>text.html.markdown.python</string>
         <key>begin</key>
         <string>(?&lt;=(?:^|\G)(?:#\s*%%\s*\[markdown\]|#\s*&lt;markdowncell&gt;)\s*)$</string>
         <key>end</key>
@@ -27,7 +29,7 @@
           <key>0</key>
           <dict>
             <key>name</key>
-            <string>comment.punctuation.definition.markdown.python</string>
+            <string>SHARP_MARK_1</string>
           </dict>
         </dict> -->
 
@@ -39,7 +41,7 @@
           </dict>
           <dict>
             <key>name</key>
-            <string>comment.punctuation.definition.markdown.python</string>
+            <string>SHARP_MARK_1</string>
             <key>match</key>
             <string>(^# |\G# )</string>
           </dict>
@@ -50,7 +52,7 @@
 
 
 
-
+TO_BE_PUT_RULE_HERE
 
 
 
