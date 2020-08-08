@@ -17,7 +17,13 @@ remove frontMatter
 
 change scope name
 
-fix `^# `
+`^`->`^# `, `\G`=>`\G# `, (`\n`->`\n# `)?
 
-**difficult part**: to make it possible to change the color of `^#`
+**difficult part**: to make it possible to change the color of `#`
 
+---
+
+todo
++ [ ] fix multi level list
++ [ ] fix not stopping fenced code
++ [ ] fix quote
