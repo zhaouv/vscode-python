@@ -43,7 +43,7 @@
             <key>name</key>
             <string>SHARP_MARK_1</string>
             <key>match</key>
-            <string>(^# |\G# )</string>
+            <string>(^#|\G#)</string>
           </dict>
         </array>
       </dict>
