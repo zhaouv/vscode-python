@@ -16,7 +16,7 @@
       <key>comment-markdown-cell-inject-python</key>
       <dict>
         <key>name</key>
-        <string>text.html.markdown.python</string>
+        <string>TO_BE_PUT_SCOPE_NAME_HERE</string>
         <key>begin</key>
         <string>(?&lt;=(?:^|\G)(?:#\s*%%\s*\[markdown\]|#\s*&lt;markdowncell&gt;)\s*)$</string>
         <key>end</key>

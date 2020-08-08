@@ -98,7 +98,7 @@
       <key>blockquote</key>
       <dict>
         <key>begin</key>
-        <string>(^# |\G# )[ ]{0,3}(&gt;) ?</string>
+        <string>((?:^# )|(?:\G# ))[ ]{0,3}(&gt;) ?</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -125,7 +125,7 @@
           </dict>
         </array>
         <key>while</key>
-        <string>(^# |\G# )\s*(&gt;) ?</string>
+        <string>((?:^# )|(?:\G# ))\s*(&gt;) ?</string>
         <key>whileCaptures</key>
         <dict>
           <key>1</key>
@@ -149,7 +149,7 @@
       <key>fenced_code_block_unknown</key>
       <dict>
         <key>begin</key>
-        <string>(^# |\G# )(\s*)(`{3,}|~{3,})\s*(?=([^`~]*)?$)</string>
+        <string>((?:^# )|(?:\G# ))(\s*)(`{3,}|~{3,})\s*(?=([^`~]*)?$)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -169,7 +169,7 @@
           </dict>
         </dict>
         <key>while</key>
-        <string>(^# |\G# )(?!(\2|\s{0,3})(\3)\s*$)</string>
+        <string>((?:^# )|(?:\G# ))(?!(\2|\s{0,3})(\3)\s*$)</string>
         <key>whileCaptures</key>
         <dict>
           <key>1</key>
@@ -179,7 +179,7 @@
           </dict>
         </dict>
         <key>end</key>
-        <string>(^# |\G# )(\2|\s{0,3})(\3)\s*$</string>
+        <string>((?:^# )|(?:\G# ))(\2|\s{0,3})(\3)\s*$</string>
         <key>endCaptures</key>
         <dict>
           <key>1</key>
@@ -199,7 +199,7 @@
       <key>heading</key>
       <dict>
         <key>match</key>
-        <string>(^# |\G# )[ ]{0,3}(#{1,6}\s+(.*?)(\s+#{1,6})?\s*)$</string>
+        <string>((?:^# )|(?:\G# ))[ ]{0,3}(#{1,6}\s+(.*?)(\s+#{1,6})?\s*)$</string>
         <key>captures</key>
         <dict>
           <key>1</key>
@@ -374,15 +374,37 @@
         <array>
           <dict>
             <key>match</key>
-            <string>^# (={3,})(?=[ \t]*$(?:\\n# )?)</string>
-            <key>name</key>
-            <string>markup.heading.setext.1.markdown.python</string>
+            <string>((?:^# ))(={3,})(?=[ \t]*$(?:\n# )?)</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>comment.punctuation.definition.markdown.python</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>markup.heading.setext.1.markdown.python</string>
+              </dict>
+            </dict>
           </dict>
           <dict>
             <key>match</key>
-            <string>^# (-{3,})(?=[ \t]*$(?:\\n# )?)</string>
-            <key>name</key>
-            <string>markup.heading.setext.2.markdown.python</string>
+            <string>((?:^# ))(-{3,})(?=[ \t]*$(?:\n# )?)</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>comment.punctuation.definition.markdown.python</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>markup.heading.setext.2.markdown.python</string>
+              </dict>
+            </dict>
           </dict>
         </array>
       </dict>
@@ -392,7 +414,7 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>(^# |\G# )\s*(&lt;!--)</string>
+            <string>((?:^# )|(?:\G# ))\s*(&lt;!--)</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -421,7 +443,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>(?i)(^# |\G# )\s*(?=&lt;(script|style|pre)(\s|$|&gt;)(?!.*?&lt;/(script|style|pre)&gt;))</string>
+            <string>(?i)((?:^# )|(?:\G# ))\s*(?=&lt;(script|style|pre)(\s|$|&gt;)(?!.*?&lt;/(script|style|pre)&gt;))</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -478,13 +500,21 @@
                   </dict>
                 </array>
                 <key>while</key>
-                <string>(?i)^# (?!.*&lt;/(script|style|pre)&gt;)</string>
+                <string>(?i)(?:^# )(?!.*&lt;/(script|style|pre)&gt;)</string>
+                <key>whileCaptures</key>
+                <dict>
+                  <key>0</key>
+                  <dict>
+                    <key>name</key>
+                    <string>comment.punctuation.definition.markdown.python</string>
+                  </dict>
+                </dict>
               </dict>
             </array>
           </dict>
           <dict>
             <key>begin</key>
-            <string>(?i)(^# |\G# )\s*(?=&lt;/?[a-zA-Z]+[^\s/&amp;gt;]*(\s|$|/?&gt;))</string>
+            <string>(?i)((?:^# )|(?:\G# ))\s*(?=&lt;/?[a-zA-Z]+[^\s/&amp;gt;]*(\s|$|/?&gt;))</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -501,11 +531,19 @@
               </dict>
             </array>
             <key>while</key>
-            <string>^# (?!\s*$)</string>
+            <string>(?:^# )(?!\s*$)</string>
+            <key>whileCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>comment.punctuation.definition.markdown.python</string>
+              </dict>
+            </dict>
           </dict>
           <dict>
             <key>begin</key>
-            <string>(^# |\G# )\s*(?=(&lt;[a-zA-Z0-9\-](/?&gt;|\s.*?&gt;)|&lt;/[a-zA-Z0-9\-]&gt;)\s*$)</string>
+            <string>((?:^# )|(?:\G# ))\s*(?=(&lt;[a-zA-Z0-9\-](/?&gt;|\s.*?&gt;)|&lt;/[a-zA-Z0-9\-]&gt;)\s*$)</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -522,7 +560,15 @@
               </dict>
             </array>
             <key>while</key>
-            <string>^# (?!\s*$)</string>
+            <string>(?:^# )(?!\s*$)</string>
+            <key>whileCaptures</key>
+            <dict>
+              <key>0</key>
+              <dict>
+                <key>name</key>
+                <string>comment.punctuation.definition.markdown.python</string>
+              </dict>
+            </dict>
           </dict>
         </array>
       </dict>
@@ -616,7 +662,7 @@
       <key>list_paragraph</key>
       <dict>
         <key>begin</key>
-        <string>(^# |\G# )(?=\S)(?![*+-&gt;]\s|[0-9]+\.\s)</string>
+        <string>((?:^# )|(?:\G# ))(?=\S)(?![*+-&gt;]\s|[0-9]+\.\s)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -643,7 +689,7 @@
           </dict>
         </array>
         <key>while</key>
-        <string>(^# |\G# )(?!\s*$|#|[ ]{0,3}([-*_&gt;][ ]{2,}){3,}[ \t]*$(?:\\n# )?|[ ]{0,3}[*+-&gt;]|[ ]{0,3}[0-9]+\.)</string>
+        <string>((?:^# )|(?:\G# ))(?!\s*$|#|[ ]{0,3}([-*_&gt;][ ]{2,}){3,}[ \t]*$(?:\n# )?|[ ]{0,3}[*+-&gt;]|[ ]{0,3}[0-9]+\.)</string>
         <key>whileCaptures</key>
         <dict>
           <key>1</key>
@@ -659,7 +705,7 @@
         <array>
           <dict>
             <key>begin</key>
-            <string>(^# |\G# )([ ]{0,3})([*+-])([ \t])</string>
+            <string>((?:^# )|(?:\G# ))([ ]{0,3})([*+-])([ \t])</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -689,7 +735,7 @@
               </dict>
             </array>
             <key>while</key>
-            <string>((^# |\G# )([ ]{2,4}|\t))|(^# [ \t]*$)</string>
+            <string>((((?:^# )|(?:\G# ))([ ]{2,4}|	))|((?:^# )[ 	]*$))</string>
             <key>whileCaptures</key>
             <dict>
               <key>1</key>
@@ -701,7 +747,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>(^# |\G# )([ ]{0,3})([0-9]+\.)([ \t])</string>
+            <string>((?:^# )|(?:\G# ))([ ]{0,3})([0-9]+\.)([ \t])</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -729,7 +775,7 @@
               </dict>
             </array>
             <key>while</key>
-            <string>((^# |\G# )([ ]{2,4}|\t))|(^# [ \t]*$)</string>
+            <string>((((?:^# )|(?:\G# ))([ ]{2,4}|	))|((?:^# )[ 	]*$))</string>
             <key>whileCaptures</key>
             <dict>
               <key>1</key>
@@ -744,7 +790,7 @@
       <key>paragraph</key>
       <dict>
         <key>begin</key>
-        <string>(^# |\G# )[ ]{0,3}(?=\S)</string>
+        <string>((?:^# )|(?:\G# ))[ ]{0,3}(?=\S)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -771,7 +817,7 @@
           </dict>
         </array>
         <key>while</key>
-        <string>(^# |\G# )((?=\s*[-=]{3,}\s*$)|[ ]{4,}(?=\S))</string>
+        <string>((?:^# )|(?:\G# ))((?=\s*[-=]{3,}\s*$)|[ ]{4,}(?=\S))</string>
         <key>whileCaptures</key>
         <dict>
           <key>1</key>
@@ -784,7 +830,7 @@
       <key>raw_block</key>
       <dict>
         <key>begin</key>
-        <string>(^# |\G# )([ ]{4}|\t)</string>
+        <string>((?:^# )|(?:\G# ))([ ]{4}|\t)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -796,7 +842,7 @@
         <key>name</key>
         <string>markup.raw.block.markdown.python</string>
         <key>while</key>
-        <string>(^# |\G# )([ ]{4}|\t)</string>
+        <string>((?:^# )|(?:\G# ))([ ]{4}|\t)</string>
         <key>whileCaptures</key>
         <dict>
           <key>1</key>
@@ -809,7 +855,7 @@
       <key>separator</key>
       <dict>
         <key>match</key>
-        <string>(^# |\G# )[ ]{0,3}([\*\-\_])([ ]{0,2}\2){2,}[ \t]*$(?:\\n# )?</string>
+        <string>((?:^# )|(?:\G# ))[ ]{0,3}([\*\-\_])([ ]{0,2}\2){2,}[ \t]*$(?:\n# )?</string>
         <key>captures</key>
         <dict>
           <key>1</key>
