@@ -170,6 +170,16 @@ ${indent}</dict>
   return ['    ',u[2],'\n    ',u[3],'\n',u[0],'\n',u[1],'\n'].join('')
 })
 .write()
+// 19
+// fix quote
+re=String.raw`\(START_MARK_1\)\[ \]\{0,3\}\(&gt;\) \?((?:.*\n){8})(?:.*\n){3}((?:.*\n){5})([\s\S\n]*?)\(START_MARK_1\)\\s\*\(&gt;\) \?((?:.*\n){8})`
+tmls
+.replace('s' + (i++), new RegExp(re, 'gmi'), v => {
+  let match = new RegExp(re, 'mi').exec(v)
+  console.log(match)
+  return String.raw`(START_MARK_1)[ ]{0,3}((?:&gt;\s*)+)${match[1]}${match[2]}${match[3]}(START_MARK_1)\s*((?:&gt;\s*)+)${match[4]}${match[2]}`
+})
+.write()
 
 
 // all END_MARK_1 used in negative lookahead, need not fixed

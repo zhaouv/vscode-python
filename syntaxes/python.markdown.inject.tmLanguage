@@ -98,7 +98,7 @@
       <key>blockquote</key>
       <dict>
         <key>begin</key>
-        <string>((?:^# )|(?:\G# ))[ ]{0,3}(&gt;) ?</string>
+        <string>((?:^# )|(?:\G# ))[ ]{0,3}((?:&gt;\s*)+)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -106,9 +106,6 @@
             <key>name</key>
             <string>comment.punctuation.definition.comment.python</string>
           </dict>
-        </dict>
-        <key>captures</key>
-        <dict>
           <key>2</key>
           <dict>
             <key>name</key>
@@ -125,13 +122,18 @@
           </dict>
         </array>
         <key>while</key>
-        <string>((?:^# )|(?:\G# ))\s*(&gt;) ?</string>
+        <string>((?:^# )|(?:\G# ))\s*((?:&gt;\s*)+)</string>
         <key>whileCaptures</key>
         <dict>
           <key>1</key>
           <dict>
             <key>name</key>
             <string>comment.punctuation.definition.comment.python</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.quote.begin.markdown.python</string>
           </dict>
         </dict>
       </dict>

@@ -26,4 +26,5 @@ change scope name
 todo
 + [ ] fix multi level list
 + [ ] fix not stopping fenced code
-+ [ ] fix quote
++ [x] fix quote
+
