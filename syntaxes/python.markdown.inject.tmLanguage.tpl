@@ -37,17 +37,32 @@
         <array>
           <dict>
             <key>include</key>
-            <string>#block</string>
-          </dict>
-          <dict>
-            <key>name</key>
-            <string>SHARP_MARK_1</string>
-            <key>match</key>
-            <string>(^#|\G#)</string>
+            <string>#sharpquote</string>
           </dict>
         </array>
       </dict>
-
+      <key>sharpquote</key>
+      <dict>
+        <key>begin</key>
+        <string>(^|\G)(#) ?</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>SHARP_MARK_1</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#block</string>
+          </dict>
+        </array>
+        <key>while</key>
+        <string>(^|\G)(#) ?</string>
+      </dict>
 
 
 
