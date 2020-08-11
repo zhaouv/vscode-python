@@ -7,20 +7,20 @@
 	],
 	"repository": {
 		"comment-markdown-cell-inject-python": {
-			"name": "text.html.markdown",
+			"name": "comment.quote_code.number-sign.python",
 			"begin": "(?<=(?:^|\\G)(?:#\\s*%%\\s*\\[markdown\\]|#\\s*<markdowncell>)\\s*)$",
-			"end": "(^|\\G)(?=[^#\\s]|#\\s*%%|\\s+\\S)",
+			"end": "(^|\\G)(?=\\s*[^#\\s]|\\s*#\\s*%%)",
 			"patterns": [
 				{
-					"include": "#sharp-quote"
+					"include": "#number-sign-quote"
 				}
 			]
 		},
-		"sharp-quote": {
-			"begin": "(^|\\G)(#) ?",
+		"number-sign-quote": {
+			"begin": "(^|\\G)\\s*(#) ?",
 			"captures": {
 				"2": {
-					"name": "comment.punctuation.definition.comment.python"
+					"name": "comment.punctuation.definition.quote_code.python"
 				}
 			},
 			"contentName": "meta.embedded.block.md",
@@ -29,7 +29,7 @@
 					"include": "text.html.markdown"
 				}
 			],
-			"while": "(^|\\G)(#) ?"
+			"while": "(^|\\G)\\s*(#) ?(?!\\s*%%)"
 		}
 	},
     "scopeName": "comment.markdown-cell-inject.python"
